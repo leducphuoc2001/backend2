@@ -2,23 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Companies;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Company;
+use Illuminate\Routing\Controller as BaseController;
 
-class CompanyController extends Controller
+class CompaniesController extends Controller
 {
-    public function getCompanies(Request $request) {
-
-        $per_page = $request->input('per_page');
-
-        $obj = new Company();
-        $companies = $obj->paginate($per_page);
-
-        return view('companies', ['companies' => $companies]);
+    public function companies(){
+        $obj = new Companies();
+        $companies = $obj->paginate(15);
+        return view('companies',['companies' => $companies]);
     }
-}
+}   
