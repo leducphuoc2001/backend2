@@ -21,13 +21,13 @@ class CategoriesController extends Controller
 
         $categories = $obj_categories::pluck('category_name','category_id');
         $companies = $obj_companies->search($search_value,$id);
-        
+
         return view('categories',['categories' => $categories,'search'=>$companies]);
     }
 
     public function categoriescompanies(){
         $obj = new Categories();
-        $categories = $obj->paginate(15);
+        $categories = $obj->paginate(1);
         return view('categoriescompanies',['categories' => $categories]);
     }
-}   
+}

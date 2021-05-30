@@ -1,10 +1,12 @@
 <?php
 
 namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Database\Migrations;
+
 class TrainerSeeder extends Seeder
 {
     /**
@@ -14,13 +16,12 @@ class TrainerSeeder extends Seeder
      */
     public function run()
     {
-        $collection = collect([1, 2, 3]);
-        for ($i=0; $i < 500; $i++) { 
+        for ($i=0; $i < 50; $i++){
             DB::table('trainers')->insert([
-                'trainer_name' => Str::random(3),
-                'company_id' => $collection->random(),
-                'trainer_email' => Str::random(3),
-                'trainer_phone' => "012345679",
+                'trainer_name' => 'lam',
+                'company_id' => rand(1,1000000),
+                'trainer_email' => Str::random(20),
+                'trainer_phone' => '123456',
             ]);
         }
     }

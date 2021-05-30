@@ -1,11 +1,12 @@
 <?php
 
 namespace Database\Seeders;
-
-use App\Models\Company;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Database\Migrations;
+
 class CompaniesSeeder extends Seeder
 {
     /**
@@ -15,16 +16,16 @@ class CompaniesSeeder extends Seeder
      */
     public function run()
     {
-        $collection = collect([1, 2, 3]);
-        for ($i=0; $i < 500; $i++) { 
+        for ($i=0; $i < 50; $i++){
             DB::table('companies')->insert([
-                'company_name' => Str::random(3),
-                'company_web' => Str::random(3),
-                'company_address' => Str::random(3),
-                'company_code' => Str::random(3),
-                'company_phone' => "012345679",
-                'category_id' => $collection->random(),
+                'company_name' => "Company_".($i+1),
+                'company_web' => Str::random(10),
+                'company_address' => Str::random(10),
+                'company_code' => Str::random(10),
+                'company_phone' => Str::random(10),
+                'category_id'  => rand(1,10)
             ]);
         }
+
     }
 }

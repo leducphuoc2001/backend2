@@ -13,7 +13,10 @@ class CompaniesController extends Controller
 {
     public function companies(){
         $obj = new Companies();
-        $companies = $obj->paginate(15);
-        return view('companies',['companies' => $companies]);
+        $companies = $obj->paginate(10);
+
+        //$f = $obj->where('company_id', '=', 1)->first();
+        //dd($f->toArray());
+        return view('companies',['companies'=>$companies]);
     }
-}   
+}

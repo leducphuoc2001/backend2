@@ -53,7 +53,7 @@
             <tbody>
                 @foreach($search as $s)
                 <tr>
-                    <th scope="row">{!! $s->id !!}</th>
+                    <th scope="row">{!! $s->company_id !!}</th>
                     <td>{!! $s->company_name !!}</td>
                     <td>{!! $s->company_web !!}</td>
                     <td>{!! $s->company_phone !!}</td>
