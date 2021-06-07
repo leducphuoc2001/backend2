@@ -14,7 +14,9 @@ class Classes extends Migration
     public function up()
     {
         Schema::create('classes', function (Blueprint $table) {
-            $table->id();
+            $table->increments('class_id');
+            $table->string('class_name', 55);
+            $table->integer('course_id');
             $table->timestamps();
         });
     }

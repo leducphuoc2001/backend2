@@ -14,7 +14,9 @@ class Diaries extends Migration
     public function up()
     {
         Schema::create('diaries', function (Blueprint $table) {
-            $table->id();
+            $$table->increments('diary_id');
+            $table->string('diary_name', 55);
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

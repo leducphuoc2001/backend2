@@ -13,6 +13,10 @@ class TypesSeeder extends Seeder
      */
     public function run()
     {
-        //
+        for ($i = 0; $i < 100; $i++) {
+            DB::table('types')->insert([
+                'type_name' => Str::random(10),
+            ]);
+        }
     }
 }

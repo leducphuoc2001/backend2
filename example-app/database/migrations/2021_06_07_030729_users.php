@@ -14,7 +14,10 @@ class Users extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->increments('user_id');
+            $table->string('user_name', 55);
+            $table->integer('type_id');
+            $table->integer('group_id');
             $table->timestamps();
         });
     }

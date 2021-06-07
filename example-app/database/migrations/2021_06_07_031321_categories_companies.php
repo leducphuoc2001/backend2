@@ -14,7 +14,8 @@ class CategoriesCompanies extends Migration
     public function up()
     {
         Schema::create('categories_companies', function (Blueprint $table) {
-            $table->id();
+            $table->integer('category_id');
+            $table->integer('company_id');
             $table->timestamps();
         });
     }

@@ -13,6 +13,10 @@ class PermissionsSeeder extends Seeder
      */
     public function run()
     {
-        //
+        for ($i = 0; $i < 100; $i++) {
+            DB::table('permissions')->insert([
+                'permission_name' => Str::random(10),
+            ]);
+        }
     }
 }

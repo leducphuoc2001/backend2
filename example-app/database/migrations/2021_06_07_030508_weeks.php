@@ -14,7 +14,12 @@ class Weeks extends Migration
     public function up()
     {
         Schema::create('weeks', function (Blueprint $table) {
-            $table->id();
+            $table->increments('week_id');
+            $table->string('week_weekdays', 55);
+            $table->string('status_check', 55);
+            $table->string('create_at', 55);
+            $table->string('end_at', 55);
+            $table->integer('diary_id');
             $table->timestamps();
         });
     }

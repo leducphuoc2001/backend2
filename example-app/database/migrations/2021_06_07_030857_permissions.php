@@ -14,7 +14,8 @@ class Permissions extends Migration
     public function up()
     {
         Schema::create('permissions', function (Blueprint $table) {
-            $table->id();
+            $table->increments('permission_id');
+            $table->string('permission_name', 55);
             $table->timestamps();
         });
     }

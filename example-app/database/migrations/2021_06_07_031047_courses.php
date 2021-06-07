@@ -14,7 +14,10 @@ class Courses extends Migration
     public function up()
     {
         Schema::create('courses', function (Blueprint $table) {
-            $table->id();
+            $table->increments('course_id');
+            $table->string('course_name', 55);
+            $table->string('course_semester', 55);
+            $table->integer('course_year');
             $table->timestamps();
         });
     }

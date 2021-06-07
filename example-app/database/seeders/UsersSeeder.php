@@ -13,6 +13,12 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        //
+        for ($i = 0; $i < 100; $i++) {
+            DB::table('users')->insert([
+                'user_name' => Str::random(10),
+                'type_id' => random_int(1, 99),
+                'group_id' => random_int(1, 99),
+            ]);
+        }
     }
 }

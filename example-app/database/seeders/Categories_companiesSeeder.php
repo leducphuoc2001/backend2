@@ -13,6 +13,11 @@ class Categories_companiesSeeder extends Seeder
      */
     public function run()
     {
-        //
+        for ($i = 0; $i < 100; $i++) {
+            DB::table('categories_companies')->insert([
+                'company_id' => random_int(1, 99),
+                'category_id' => random_int(1, 99),
+            ]);
+        }
     }
 }

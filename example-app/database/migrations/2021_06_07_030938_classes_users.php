@@ -14,7 +14,9 @@ class ClassesUsers extends Migration
     public function up()
     {
         Schema::create('classes_users', function (Blueprint $table) {
-            $table->id();
+            $table->integer('user_id');
+            $table->integer('class_id');
+            $table->integer('teacher_id');
             $table->timestamps();
         });
     }

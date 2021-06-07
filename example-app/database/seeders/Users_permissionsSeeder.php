@@ -13,6 +13,11 @@ class Users_permissionsSeeder extends Seeder
      */
     public function run()
     {
-        //
+        for ($i = 0; $i < 100; $i++) {
+            DB::table('users_permissions')->insert([
+                'user_id' => random_int(1, 99),
+                'permission_id' => random_int(1, 99),
+            ]);
+        }
     }
 }

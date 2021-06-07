@@ -13,6 +13,11 @@ class DiariesSeeder extends Seeder
      */
     public function run()
     {
-        //
+        for ($i = 0; $i < 100; $i++) {
+            DB::table('diaries')->insert([
+                'diary_name' => Str::random(10),
+                'user_id' => random_int(1, 99),
+            ]);
+        }
     }
 }

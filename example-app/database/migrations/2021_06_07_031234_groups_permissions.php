@@ -14,7 +14,8 @@ class GroupsPermissions extends Migration
     public function up()
     {
         Schema::create('groups_permissions', function (Blueprint $table) {
-            $table->id();
+            $table->integer('permission_id');
+            $table->integer('group_id');
             $table->timestamps();
         });
     }
