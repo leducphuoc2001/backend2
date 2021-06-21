@@ -12,22 +12,24 @@ use Illuminate\Routing\Controller as BaseController;
 
 class CategoriesController extends Controller
 {
-    public function categories(Request $request){
+    public function categories(Request $request)
+    {
         $search_value = $request->get('search');
         $id = $request->get('category_id');
 
         $obj_categories = new Categories();
         $obj_companies = new Companies();
 
-        $categories = $obj_categories::pluck('category_name','category_id');
-        $companies = $obj_companies->search($search_value,$id);
+        $categories = $obj_categories::pluck('category_name', 'category_id');
+        $companies = $obj_companies->search($search_value, $id);
 
-        return view('categories',['categories' => $categories,'search'=>$companies]);
+        return view('categories', ['categories' => $categories, 'search' => $companies]);
     }
 
-    public function categoriescompanies(){
+    public function categoriescompanies()
+    {
         $obj = new Categories();
         $categories = $obj->paginate(1);
-        return view('categoriescompanies',['categories' => $categories]);
+        return view('categoriescompanies', ['categories' => $categories]);
     }
 }
