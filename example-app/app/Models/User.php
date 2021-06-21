@@ -21,14 +21,15 @@ class User extends Authenticatable
         'user_email',
         'user_password',
     ];
-
+   
+    protected $primaryKey='user_id';
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
     protected $hidden = [
-        'password',
+        'user_password',
         'remember_token',
     ];
 
@@ -40,4 +41,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function getAuthPassword()
+    {
+        return $this->user_password;
+    }
 }

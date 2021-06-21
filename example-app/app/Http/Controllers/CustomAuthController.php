@@ -16,16 +16,19 @@ class CustomAuthController extends Controller
         return view('auth.login');
     }
 
-
     public function customLogin(Request $request)
     {
         $request->validate([
-            'user_email' => 'required',
-            'user_password' => 'required',
+            'email' => 'required',
+            'password' => 'required',
         ]);
 
-        $credentials = $request->only('user_email', 'user_password');
-        if (Auth::attempt($credentials)) {
+        $credentials = $request->only('email', 'password');
+        $input = [
+            'user_email' => $credentials['email'],
+            'password' => $credentials['password']
+        ];
+        if (Auth::attempt($input)) {
             return redirect()->intended('dashboard')
                 ->withSuccess('Signed in');
         }
